@@ -28,7 +28,7 @@ document.getElementById('item').addEventListener('keydown', function (e) {
 function addItem(value) {
     addItemToDOM(value);
     document.getElementById('item').value = '';
-
+    sendItemToAPI(value);
     data.todo.push(value);
     dataObjectUpdated();
 }
@@ -119,3 +119,16 @@ function addItemToDOM(text, completed) {
 
     list.insertBefore(item, list.childNodes[0]);
 }
+
+function sendItemToAPI(item) {
+    console.log(item);
+
+    $.ajax({
+        url: "/add",
+        type: "POST",
+        data: item,
+        success: function () {
+            console.log("successfully posted to server")
+        }
+    })
+};
