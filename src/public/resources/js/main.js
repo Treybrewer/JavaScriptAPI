@@ -123,12 +123,18 @@ function addItemToDOM(text, completed) {
 function sendItemToAPI(item) {
     console.log(item);
 
+    //jQuery post request and response logged to console
     $.ajax({
         url: "/add",
         type: "POST",
-        data: item,
+        data: {"item": item},
         success: function () {
-            console.log("successfully posted to server")
+            console.log(`${item} was successfully posted to server`);
+            
         }
+    })
+    .then(function(res){
+        console.log(res);
+
     })
 };
