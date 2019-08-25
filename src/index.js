@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const api = express();
 
 
+
 //middle ware to parse requests
 api.use(bodyParser.urlencoded({ extended: true }));
 api.use(bodyParser.json());
@@ -17,7 +18,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'wolfpack21',
-    database: 'todo' //dont have this yet
+    database: 'todo'
 });
 
    try {
